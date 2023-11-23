@@ -1,0 +1,9 @@
+final_project
+=============
+
+.. toctree::
+   :maxdepth: 4
+
+   project
+   helpers
+   test_project

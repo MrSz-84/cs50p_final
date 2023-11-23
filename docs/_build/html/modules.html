@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>final_project &#8212; Sudoku Solver With Statistics 1.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?v=aa5eeaf2" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css?v=b20cc3f5" />
+    
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="project module" href="project.html" />
+    <link rel="prev" title="Welcome to Sudoku Solver With Statistics’s documentation!" href="index.html" /><link rel="stylesheet" href="_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <link rel="shortcut icon" type="image/png" href="_static/py.svg" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script>
+            <script type="text/javascript" src="_static/search-focus.js"></script>
+            <script type="text/javascript" src="_static/themetoggle.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <nav class="nav-content" role="navigation">
+        <label for="menuToggler" class="toggler__label">
+            <span></span>
+        </label>
+        <span class="nav-items-wrapper">
+            <a href="https://www.python.org/" class="nav-logo">
+                <img src="_static/py.svg" alt="Logo"/>
+            </a>
+            <span class="version_switcher_placeholder"></span>
+            <form role="search" class="search" action="search.html" method="get">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                    <path fill-rule="nonzero" fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+                <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+                <input type="submit" value="Go"/>
+            </form>
+        </span>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+            
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">Welcome to Sudoku Solver With Statistics’s documentation!</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="project.html"
+                          title="next chapter">project module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/modules.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="project.html" title="project module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Sudoku Solver With Statistics’s documentation!"
+             accesskey="P">previous</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">Sudoku Solver With Statistics 1.0 documentation</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">final_project</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" id="search-box" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="final-project">
+<h1>final_project<a class="headerlink" href="#final-project" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="project.html">project module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="project.html#project.argparse_logic"><code class="docutils literal notranslate"><span class="pre">argparse_logic()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html#project.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html#project.show_stats"><code class="docutils literal notranslate"><span class="pre">show_stats()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html#project.test_pipeline"><code class="docutils literal notranslate"><span class="pre">test_pipeline()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="helpers.html">helpers package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#module-helpers.dbops">helpers.dbops module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.dbops.conn_to_db"><code class="docutils literal notranslate"><span class="pre">conn_to_db()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.dbops.get_data"><code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.dbops.setup_path"><code class="docutils literal notranslate"><span class="pre">setup_path()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.dbops.termination"><code class="docutils literal notranslate"><span class="pre">termination()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.dbops.write_to_db"><code class="docutils literal notranslate"><span class="pre">write_to_db()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#module-helpers.fileops">helpers.fileops module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.fileops.db_to_file"><code class="docutils literal notranslate"><span class="pre">db_to_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.fileops.lines_positions"><code class="docutils literal notranslate"><span class="pre">lines_positions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.fileops.linesread"><code class="docutils literal notranslate"><span class="pre">linesread()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.fileops.open_file"><code class="docutils literal notranslate"><span class="pre">open_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.fileops.read_file"><code class="docutils literal notranslate"><span class="pre">read_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.fileops.write_to_file"><code class="docutils literal notranslate"><span class="pre">write_to_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#module-helpers.gridops">helpers.gridops module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.gridops.grid_to_str"><code class="docutils literal notranslate"><span class="pre">grid_to_str()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.gridops.make_grid"><code class="docutils literal notranslate"><span class="pre">make_grid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.gridops.print_grid"><code class="docutils literal notranslate"><span class="pre">print_grid()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#module-helpers.miscellaneous">helpers.miscellaneous module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.miscellaneous.clear_screen"><code class="docutils literal notranslate"><span class="pre">clear_screen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.miscellaneous.compare"><code class="docutils literal notranslate"><span class="pre">compare()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#module-helpers.printops">helpers.printops module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.printops.confirmation"><code class="docutils literal notranslate"><span class="pre">confirmation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.printops.print_date"><code class="docutils literal notranslate"><span class="pre">print_date()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.printops.print_main_menu"><code class="docutils literal notranslate"><span class="pre">print_main_menu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.printops.print_other_actions"><code class="docutils literal notranslate"><span class="pre">print_other_actions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.printops.print_presentation_method_menu"><code class="docutils literal notranslate"><span class="pre">print_presentation_method_menu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.printops.print_solve_menu"><code class="docutils literal notranslate"><span class="pre">print_solve_menu()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#module-helpers.solvers">helpers.solvers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.solvers.bact_r_solve"><code class="docutils literal notranslate"><span class="pre">bact_r_solve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.solvers.boost_bact_r_solve"><code class="docutils literal notranslate"><span class="pre">boost_bact_r_solve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.solvers.cake_algo"><code class="docutils literal notranslate"><span class="pre">cake_algo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.solvers.dlxsudoku_module"><code class="docutils literal notranslate"><span class="pre">dlxsudoku_module()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.solvers.find_empty"><code class="docutils literal notranslate"><span class="pre">find_empty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.solvers.find_valid_vals"><code class="docutils literal notranslate"><span class="pre">find_valid_vals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.solvers.list_of_free_fields"><code class="docutils literal notranslate"><span class="pre">list_of_free_fields()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.solvers.ordered_valid_vals"><code class="docutils literal notranslate"><span class="pre">ordered_valid_vals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.solvers.random_walk"><code class="docutils literal notranslate"><span class="pre">random_walk()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.solvers.scan_for_valid_vals"><code class="docutils literal notranslate"><span class="pre">scan_for_valid_vals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.solvers.validator"><code class="docutils literal notranslate"><span class="pre">validator()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#module-helpers.validateops">helpers.validateops module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.validateops.determine_headers"><code class="docutils literal notranslate"><span class="pre">determine_headers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.validateops.validate_date"><code class="docutils literal notranslate"><span class="pre">validate_date()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.validateops.validate_file"><code class="docutils literal notranslate"><span class="pre">validate_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html#helpers.validateops.validate_rows"><code class="docutils literal notranslate"><span class="pre">validate_rows()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#module-helpers">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="test_project.html">test_project module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_argparse_logic"><code class="docutils literal notranslate"><span class="pre">test_argparse_logic()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_bact_r_solve"><code class="docutils literal notranslate"><span class="pre">test_bact_r_solve()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_cake_algo"><code class="docutils literal notranslate"><span class="pre">test_cake_algo()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_confirmation_negative"><code class="docutils literal notranslate"><span class="pre">test_confirmation_negative()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_confirmation_positive"><code class="docutils literal notranslate"><span class="pre">test_confirmation_positive()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_determine_headers"><code class="docutils literal notranslate"><span class="pre">test_determine_headers()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_find_empty"><code class="docutils literal notranslate"><span class="pre">test_find_empty()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_find_full"><code class="docutils literal notranslate"><span class="pre">test_find_full()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_grid_to_str"><code class="docutils literal notranslate"><span class="pre">test_grid_to_str()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_linesread"><code class="docutils literal notranslate"><span class="pre">test_linesread()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_make_grid"><code class="docutils literal notranslate"><span class="pre">test_make_grid()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_open_file"><code class="docutils literal notranslate"><span class="pre">test_open_file()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_print_date_neg"><code class="docutils literal notranslate"><span class="pre">test_print_date_neg()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_print_date_pos"><code class="docutils literal notranslate"><span class="pre">test_print_date_pos()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_print_main_menu_neg"><code class="docutils literal notranslate"><span class="pre">test_print_main_menu_neg()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_print_main_menu_pos"><code class="docutils literal notranslate"><span class="pre">test_print_main_menu_pos()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_print_other_actions_neg"><code class="docutils literal notranslate"><span class="pre">test_print_other_actions_neg()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_print_other_actions_pos"><code class="docutils literal notranslate"><span class="pre">test_print_other_actions_pos()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_print_presentation_method_menu_neg"><code class="docutils literal notranslate"><span class="pre">test_print_presentation_method_menu_neg()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_print_presentation_method_menu_pos"><code class="docutils literal notranslate"><span class="pre">test_print_presentation_method_menu_pos()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_print_solve_menu_neg"><code class="docutils literal notranslate"><span class="pre">test_print_solve_menu_neg()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_print_solve_menu_pos"><code class="docutils literal notranslate"><span class="pre">test_print_solve_menu_pos()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_read_file"><code class="docutils literal notranslate"><span class="pre">test_read_file()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_validate_file"><code class="docutils literal notranslate"><span class="pre">test_validate_file()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_validate_rows_noflag"><code class="docutils literal notranslate"><span class="pre">test_validate_rows_noflag()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_validate_rows_puzzle"><code class="docutils literal notranslate"><span class="pre">test_validate_rows_puzzle()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_validate_rows_solution"><code class="docutils literal notranslate"><span class="pre">test_validate_rows_solution()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_validator"><code class="docutils literal notranslate"><span class="pre">test_validator()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_project.html#test_project.test_write_to_file"><code class="docutils literal notranslate"><span class="pre">test_write_to_file()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">Welcome to Sudoku Solver With Statistics’s documentation!</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="project.html"
+                          title="next chapter">project module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/modules.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="project.html" title="project module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Sudoku Solver With Statistics’s documentation!"
+             >previous</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">Sudoku Solver With Statistics 1.0 documentation</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">final_project</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" id="search-box" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; Copyright 2023, Marcin Borowski.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>test_project module &#8212; Sudoku Solver With Statistics 1.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?v=aa5eeaf2" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css?v=b20cc3f5" />
+    
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="helpers package" href="helpers.html" /><link rel="stylesheet" href="_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <link rel="shortcut icon" type="image/png" href="_static/py.svg" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script>
+            <script type="text/javascript" src="_static/search-focus.js"></script>
+            <script type="text/javascript" src="_static/themetoggle.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <nav class="nav-content" role="navigation">
+        <label for="menuToggler" class="toggler__label">
+            <span></span>
+        </label>
+        <span class="nav-items-wrapper">
+            <a href="https://www.python.org/" class="nav-logo">
+                <img src="_static/py.svg" alt="Logo"/>
+            </a>
+            <span class="version_switcher_placeholder"></span>
+            <form role="search" class="search" action="search.html" method="get">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                    <path fill-rule="nonzero" fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+                <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+                <input type="submit" value="Go"/>
+            </form>
+        </span>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+            
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">test_project module</a><ul>
+<li><a class="reference internal" href="#test_project.test_argparse_logic"><code class="docutils literal notranslate"><span class="pre">test_argparse_logic()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_bact_r_solve"><code class="docutils literal notranslate"><span class="pre">test_bact_r_solve()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_cake_algo"><code class="docutils literal notranslate"><span class="pre">test_cake_algo()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_confirmation_negative"><code class="docutils literal notranslate"><span class="pre">test_confirmation_negative()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_confirmation_positive"><code class="docutils literal notranslate"><span class="pre">test_confirmation_positive()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_determine_headers"><code class="docutils literal notranslate"><span class="pre">test_determine_headers()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_find_empty"><code class="docutils literal notranslate"><span class="pre">test_find_empty()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_find_full"><code class="docutils literal notranslate"><span class="pre">test_find_full()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_grid_to_str"><code class="docutils literal notranslate"><span class="pre">test_grid_to_str()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_linesread"><code class="docutils literal notranslate"><span class="pre">test_linesread()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_make_grid"><code class="docutils literal notranslate"><span class="pre">test_make_grid()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_open_file"><code class="docutils literal notranslate"><span class="pre">test_open_file()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_date_neg"><code class="docutils literal notranslate"><span class="pre">test_print_date_neg()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_date_pos"><code class="docutils literal notranslate"><span class="pre">test_print_date_pos()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_main_menu_neg"><code class="docutils literal notranslate"><span class="pre">test_print_main_menu_neg()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_main_menu_pos"><code class="docutils literal notranslate"><span class="pre">test_print_main_menu_pos()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_other_actions_neg"><code class="docutils literal notranslate"><span class="pre">test_print_other_actions_neg()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_other_actions_pos"><code class="docutils literal notranslate"><span class="pre">test_print_other_actions_pos()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_presentation_method_menu_neg"><code class="docutils literal notranslate"><span class="pre">test_print_presentation_method_menu_neg()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_presentation_method_menu_pos"><code class="docutils literal notranslate"><span class="pre">test_print_presentation_method_menu_pos()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_solve_menu_neg"><code class="docutils literal notranslate"><span class="pre">test_print_solve_menu_neg()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_solve_menu_pos"><code class="docutils literal notranslate"><span class="pre">test_print_solve_menu_pos()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_read_file"><code class="docutils literal notranslate"><span class="pre">test_read_file()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_validate_file"><code class="docutils literal notranslate"><span class="pre">test_validate_file()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_validate_rows_noflag"><code class="docutils literal notranslate"><span class="pre">test_validate_rows_noflag()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_validate_rows_puzzle"><code class="docutils literal notranslate"><span class="pre">test_validate_rows_puzzle()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_validate_rows_solution"><code class="docutils literal notranslate"><span class="pre">test_validate_rows_solution()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_validator"><code class="docutils literal notranslate"><span class="pre">test_validator()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_write_to_file"><code class="docutils literal notranslate"><span class="pre">test_write_to_file()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="helpers.html"
+                          title="previous chapter">helpers package</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/test_project.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="helpers.html" title="helpers package"
+             accesskey="P">previous</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">Sudoku Solver With Statistics 1.0 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">final_project</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">test_project module</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" id="search-box" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-test_project">
+<span id="test-project-module"></span><h1>test_project module<a class="headerlink" href="#module-test_project" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_argparse_logic">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_argparse_logic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">monkeypatch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_argparse_logic" title="Link to this definition">¶</a></dt>
+<dd><p>Tests if argparse_logic function is doing what is should.
+Uses monkeypatch fixture to provide sys.argv arguments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>monkeypatch</strong> – Pytest builtin fixture</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>AssertionError</strong> – If positive test isn’t valid</p></li>
+<li><p><strong>AttributeError</strong> – If no errors are raised where they should be.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_bact_r_solve">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_bact_r_solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_bact_r_solve" title="Link to this definition">¶</a></dt>
+<dd><p>Checks if tested function properly utilizes list_of_free_fields().</p>
+<p>Function should return a list containing tuples with address cells of “0” in the grid.
+If the function was implemented correctly solver algorithm will find a solution to given grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test isn’t valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_cake_algo">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_cake_algo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_cake_algo" title="Link to this definition">¶</a></dt>
+<dd><p>Tests if the output of Cake algorithm is as it should be.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test isn’t valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_confirmation_negative">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_confirmation_negative</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_confirmation_negative" title="Link to this definition">¶</a></dt>
+<dd><p>Test written for checking if print output of a function is valid or not.</p>
+<p>Test is executed by the usage of contextlib and io modules.
+Contextlib uses redirect_stdout for print output than with help of StringIO
+an object is created, and the data extraction processed by getvalue().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test ends with a success</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_confirmation_positive">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_confirmation_positive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_confirmation_positive" title="Link to this definition">¶</a></dt>
+<dd><p>Test written for checking if print output of a function is valid or not.</p>
+<p>Test is executed by the usage of contextlib and io modules.
+Contextlib uses redirect_stdout for print output than with help of StringIO
+an object is created, and the data extraction processed by getvalue().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If function’s output isn’t exact match.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_determine_headers">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_determine_headers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_determine_headers" title="Link to this definition">¶</a></dt>
+<dd><p>Checks what is the output for give data set. This is another step of the data
+provided in the input file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test isn’t valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_find_empty">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_find_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_find_empty" title="Link to this definition">¶</a></dt>
+<dd><p>Test if output is a tuple with row and col of the first free field.</p>
+<p>Crucial functionality for sudoku validator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test isn’t valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_find_full">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_find_full</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_find_full" title="Link to this definition">¶</a></dt>
+<dd><p>Test if output is a tuple with row and col of the first occupied field.</p>
+<p>Crucial functionality for sudoku validator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test isn’t valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_grid_to_str">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_grid_to_str</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_grid_to_str" title="Link to this definition">¶</a></dt>
+<dd><p>Test if joining grit to string gives the same result.</p>
+<p>This is needed for further test, comparison and programs functionality.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test isn’t valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_linesread">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_linesread</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_linesread" title="Link to this definition">¶</a></dt>
+<dd><p>Checks if string returned is of 163 chars length and presence of 0</p>
+<p>The length is fixed for every line, because of the tested file’s construction.
+Every line is built of sudoku puzzle and solution separated by comma.
+If all elements are present it means that tested function returned proper line for further
+processing.
+Every line should be of 163 chars long, contain 0 only in the left part.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test isn’t valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_make_grid">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_make_grid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_make_grid" title="Link to this definition">¶</a></dt>
+<dd><p>Checks if string conversion to a grid is valid</p>
+<p>Grid is necessary for most of solving algorithms. So conversion in both ways is crucial.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test isn’t valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_open_file">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_open_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_open_file" title="Link to this definition">¶</a></dt>
+<dd><p>Checks if returned object is a file
+Tested function opens a file using built in method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test isn’t valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_print_date_neg">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_print_date_neg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">monkeypatch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_print_date_neg" title="Link to this definition">¶</a></dt>
+<dd><p>Test written for checking if print output of a function is valid or not.</p>
+<p>First step is overriding users input, which is required by tested function.
+Without it program waits infinitely. This is Achieved by using builtin pytest’s fixture
+monkeypatch. It uses setattr pointing to readline for data input.</p>
+<p>Test is executed by the usage of contextlib and io modules.
+Contextlib uses redirect_stdout for print output than with help of StringIO
+an object is created, and the data extraction processed by getvalue().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>monkeypatch</strong> – Builtin Pytest functionality</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>AssertionError</strong> – If function’s output isn’t an exception.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_print_date_pos">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_print_date_pos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">monkeypatch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_print_date_pos" title="Link to this definition">¶</a></dt>
+<dd><p>Test written for checking if print output of a function is valid or not.</p>
+<p>First step is overriding users input, which is required by tested function.
+Without it program waits infinitely. This is Achieved by using builtin pytest’s fixture
+monkeypatch. It uses setattr pointing to readline for data input.</p>
+<p>Test is executed by the usage of contextlib and io modules.
+Contextlib uses redirect_stdout for print output than with help of StringIO
+an object is created, and the data extraction processed by getvalue().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>monkeypatch</strong> – Builtin Pytest functionality</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>AssertionError</strong> – If function’s output isn’t exact match.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_print_main_menu_neg">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_print_main_menu_neg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_print_main_menu_neg" title="Link to this definition">¶</a></dt>
+<dd><p>Test written for checking if print output of a function is valid or not.</p>
+<p>Test is executed by the usage of contextlib and io modules.
+Contextlib uses redirect_stdout for print output than with help of StringIO
+an object is created, and the data extraction processed by getvalue().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test ends with a success</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_print_main_menu_pos">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_print_main_menu_pos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_print_main_menu_pos" title="Link to this definition">¶</a></dt>
+<dd><p>Test written for checking if print output of a function is valid or not.</p>
+<p>Test is executed by the usage of contextlib and io modules.
+Contextlib uses redirect_stdout for print output than with help of StringIO
+an object is created, and the data extraction processed by getvalue().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If function’s output isn’t exact match.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_print_other_actions_neg">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_print_other_actions_neg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_print_other_actions_neg" title="Link to this definition">¶</a></dt>
+<dd><p>Test written for checking if print output of a function is valid or not.</p>
+<p>Test is executed by the usage of contextlib and io modules.
+Contextlib uses redirect_stdout for print output than with help of StringIO
+an object is created, and the data extraction processed by getvalue().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test ends with a success</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_print_other_actions_pos">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_print_other_actions_pos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_print_other_actions_pos" title="Link to this definition">¶</a></dt>
+<dd><p>Test written for checking if print output of a function is valid or not.</p>
+<p>Test is executed by the usage of contextlib and io modules.
+Contextlib uses redirect_stdout for print output than with help of StringIO
+an object is created, and the data extraction processed by getvalue().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If function’s output isn’t exact match.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_print_presentation_method_menu_neg">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_print_presentation_method_menu_neg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_print_presentation_method_menu_neg" title="Link to this definition">¶</a></dt>
+<dd><p>Test written for checking if print output of a function is valid or not.</p>
+<p>Test is executed by the usage of contextlib and io modules.
+Contextlib uses redirect_stdout for print output than with help of StringIO
+an object is created, and the data extraction processed by getvalue().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test ends with a success</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_print_presentation_method_menu_pos">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_print_presentation_method_menu_pos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_print_presentation_method_menu_pos" title="Link to this definition">¶</a></dt>
+<dd><p>Test written for checking if print output of a function is valid or not.</p>
+<p>Test is executed by the usage of contextlib and io modules.
+Contextlib uses redirect_stdout for print output than with help of StringIO
+an object is created, and the data extraction processed by getvalue().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If function’s output isn’t exact match.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_print_solve_menu_neg">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_print_solve_menu_neg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_print_solve_menu_neg" title="Link to this definition">¶</a></dt>
+<dd><p>Test written for checking if print output of a function is valid or not.</p>
+<p>Test is executed by the usage of contextlib and io modules.
+Contextlib uses redirect_stdout for print output than with help of StringIO
+an object is created, and the data extraction processed by getvalue().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test ends with a success</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_print_solve_menu_pos">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_print_solve_menu_pos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_print_solve_menu_pos" title="Link to this definition">¶</a></dt>
+<dd><p>Test written for checking if print output of a function is valid or not.</p>
+<p>Test is executed by the usage of contextlib and io modules.
+Contextlib uses redirect_stdout for print output than with help of StringIO
+an object is created, and the data extraction processed by getvalue().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If function’s output isn’t exact match.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_read_file">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_read_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_read_file" title="Link to this definition">¶</a></dt>
+<dd><p>Checks if returned object is of list type.</p>
+<p>Tested function should read through the file and return a list containing every valid line,
+of read file. So if we have a list object, we should be ready to proceed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test isn’t valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_validate_file">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_validate_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_validate_file" title="Link to this definition">¶</a></dt>
+<dd><p>Validates whether a file exists and if it is a file indeed.
+Tested function uses os.path.isfile() for the validation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test isn’t valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_validate_rows_noflag">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_validate_rows_noflag</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_validate_rows_noflag" title="Link to this definition">¶</a></dt>
+<dd><p>Tests puzzle for data validation. Noflag for solutions.</p>
+<p>Tested function should check if a read row is valid for further manipulation,
+and solving processes. It is done by checking if provided header of csv file is same as file
+contents. If i.g. there should be no comma in any line, and it should contain “0” values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test isn’t valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_validate_rows_puzzle">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_validate_rows_puzzle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_validate_rows_puzzle" title="Link to this definition">¶</a></dt>
+<dd><p>Test puzzle data validation.</p>
+<p>Tested function should check if a read row is valid for further manipulation,
+and solving processes. It is done by checking if provided header of csv file is same as file
+contents. If i.g. puzzle, solution header is provided, “0” values should be only on the left
+part of each line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test isn’t valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_validate_rows_solution">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_validate_rows_solution</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_validate_rows_solution" title="Link to this definition">¶</a></dt>
+<dd><p>Tests solutions data validation.</p>
+<p>Tested function should check if a read row is valid for further manipulation,
+and solving processes. It is done by checking if provided header of csv file is same as file
+contents. If i.g. puzzle, solution header is provided, there should be no “0” values in the
+solution part of the line.
+part of each line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test isn’t valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_validator">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_validator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_validator" title="Link to this definition">¶</a></dt>
+<dd><p>Tests if validator is returning right boolean output</p>
+<p>No solution if it is against the rules. So validator should assert if given digit,
+can fit into checked cell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test isn’t valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="test_project.test_write_to_file">
+<span class="sig-prename descclassname"><span class="pre">test_project.</span></span><span class="sig-name descname"><span class="pre">test_write_to_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_project.test_write_to_file" title="Link to this definition">¶</a></dt>
+<dd><p>Test write to file functionality.</p>
+<p>When users desires to write sudoku puzzle solutions into the file, tested function should
+fulfill that desire. Test is simple, after using this function ‘results.csv’
+file should be created. If so, when opened it should be an instance of parent class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AssertionError</strong> – If test isn’t valid</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">test_project module</a><ul>
+<li><a class="reference internal" href="#test_project.test_argparse_logic"><code class="docutils literal notranslate"><span class="pre">test_argparse_logic()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_bact_r_solve"><code class="docutils literal notranslate"><span class="pre">test_bact_r_solve()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_cake_algo"><code class="docutils literal notranslate"><span class="pre">test_cake_algo()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_confirmation_negative"><code class="docutils literal notranslate"><span class="pre">test_confirmation_negative()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_confirmation_positive"><code class="docutils literal notranslate"><span class="pre">test_confirmation_positive()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_determine_headers"><code class="docutils literal notranslate"><span class="pre">test_determine_headers()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_find_empty"><code class="docutils literal notranslate"><span class="pre">test_find_empty()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_find_full"><code class="docutils literal notranslate"><span class="pre">test_find_full()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_grid_to_str"><code class="docutils literal notranslate"><span class="pre">test_grid_to_str()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_linesread"><code class="docutils literal notranslate"><span class="pre">test_linesread()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_make_grid"><code class="docutils literal notranslate"><span class="pre">test_make_grid()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_open_file"><code class="docutils literal notranslate"><span class="pre">test_open_file()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_date_neg"><code class="docutils literal notranslate"><span class="pre">test_print_date_neg()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_date_pos"><code class="docutils literal notranslate"><span class="pre">test_print_date_pos()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_main_menu_neg"><code class="docutils literal notranslate"><span class="pre">test_print_main_menu_neg()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_main_menu_pos"><code class="docutils literal notranslate"><span class="pre">test_print_main_menu_pos()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_other_actions_neg"><code class="docutils literal notranslate"><span class="pre">test_print_other_actions_neg()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_other_actions_pos"><code class="docutils literal notranslate"><span class="pre">test_print_other_actions_pos()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_presentation_method_menu_neg"><code class="docutils literal notranslate"><span class="pre">test_print_presentation_method_menu_neg()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_presentation_method_menu_pos"><code class="docutils literal notranslate"><span class="pre">test_print_presentation_method_menu_pos()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_solve_menu_neg"><code class="docutils literal notranslate"><span class="pre">test_print_solve_menu_neg()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_print_solve_menu_pos"><code class="docutils literal notranslate"><span class="pre">test_print_solve_menu_pos()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_read_file"><code class="docutils literal notranslate"><span class="pre">test_read_file()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_validate_file"><code class="docutils literal notranslate"><span class="pre">test_validate_file()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_validate_rows_noflag"><code class="docutils literal notranslate"><span class="pre">test_validate_rows_noflag()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_validate_rows_puzzle"><code class="docutils literal notranslate"><span class="pre">test_validate_rows_puzzle()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_validate_rows_solution"><code class="docutils literal notranslate"><span class="pre">test_validate_rows_solution()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_validator"><code class="docutils literal notranslate"><span class="pre">test_validator()</span></code></a></li>
+<li><a class="reference internal" href="#test_project.test_write_to_file"><code class="docutils literal notranslate"><span class="pre">test_write_to_file()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="helpers.html"
+                          title="previous chapter">helpers package</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/test_project.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="helpers.html" title="helpers package"
+             >previous</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">Sudoku Solver With Statistics 1.0 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >final_project</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">test_project module</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" id="search-box" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; Copyright 2023, Marcin Borowski.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+  </body>
+</html>

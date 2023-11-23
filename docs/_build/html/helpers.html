@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>helpers package &#8212; Sudoku Solver With Statistics 1.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?v=aa5eeaf2" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css?v=b20cc3f5" />
+    
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="test_project module" href="test_project.html" />
+    <link rel="prev" title="project module" href="project.html" /><link rel="stylesheet" href="_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <link rel="shortcut icon" type="image/png" href="_static/py.svg" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script>
+            <script type="text/javascript" src="_static/search-focus.js"></script>
+            <script type="text/javascript" src="_static/themetoggle.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <nav class="nav-content" role="navigation">
+        <label for="menuToggler" class="toggler__label">
+            <span></span>
+        </label>
+        <span class="nav-items-wrapper">
+            <a href="https://www.python.org/" class="nav-logo">
+                <img src="_static/py.svg" alt="Logo"/>
+            </a>
+            <span class="version_switcher_placeholder"></span>
+            <form role="search" class="search" action="search.html" method="get">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                    <path fill-rule="nonzero" fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+                <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" />
+                <input type="submit" value="Go"/>
+            </form>
+        </span>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+            
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">helpers package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-helpers.dbops">helpers.dbops module</a><ul>
+<li><a class="reference internal" href="#helpers.dbops.conn_to_db"><code class="docutils literal notranslate"><span class="pre">conn_to_db()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.dbops.get_data"><code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.dbops.setup_path"><code class="docutils literal notranslate"><span class="pre">setup_path()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.dbops.termination"><code class="docutils literal notranslate"><span class="pre">termination()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.dbops.write_to_db"><code class="docutils literal notranslate"><span class="pre">write_to_db()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-helpers.fileops">helpers.fileops module</a><ul>
+<li><a class="reference internal" href="#helpers.fileops.db_to_file"><code class="docutils literal notranslate"><span class="pre">db_to_file()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.fileops.lines_positions"><code class="docutils literal notranslate"><span class="pre">lines_positions()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.fileops.linesread"><code class="docutils literal notranslate"><span class="pre">linesread()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.fileops.open_file"><code class="docutils literal notranslate"><span class="pre">open_file()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.fileops.read_file"><code class="docutils literal notranslate"><span class="pre">read_file()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.fileops.write_to_file"><code class="docutils literal notranslate"><span class="pre">write_to_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-helpers.gridops">helpers.gridops module</a><ul>
+<li><a class="reference internal" href="#helpers.gridops.grid_to_str"><code class="docutils literal notranslate"><span class="pre">grid_to_str()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.gridops.make_grid"><code class="docutils literal notranslate"><span class="pre">make_grid()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.gridops.print_grid"><code class="docutils literal notranslate"><span class="pre">print_grid()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-helpers.miscellaneous">helpers.miscellaneous module</a><ul>
+<li><a class="reference internal" href="#helpers.miscellaneous.clear_screen"><code class="docutils literal notranslate"><span class="pre">clear_screen()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.miscellaneous.compare"><code class="docutils literal notranslate"><span class="pre">compare()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-helpers.printops">helpers.printops module</a><ul>
+<li><a class="reference internal" href="#helpers.printops.confirmation"><code class="docutils literal notranslate"><span class="pre">confirmation()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.printops.print_date"><code class="docutils literal notranslate"><span class="pre">print_date()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.printops.print_main_menu"><code class="docutils literal notranslate"><span class="pre">print_main_menu()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.printops.print_other_actions"><code class="docutils literal notranslate"><span class="pre">print_other_actions()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.printops.print_presentation_method_menu"><code class="docutils literal notranslate"><span class="pre">print_presentation_method_menu()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.printops.print_solve_menu"><code class="docutils literal notranslate"><span class="pre">print_solve_menu()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-helpers.solvers">helpers.solvers module</a><ul>
+<li><a class="reference internal" href="#helpers.solvers.bact_r_solve"><code class="docutils literal notranslate"><span class="pre">bact_r_solve()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.boost_bact_r_solve"><code class="docutils literal notranslate"><span class="pre">boost_bact_r_solve()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.cake_algo"><code class="docutils literal notranslate"><span class="pre">cake_algo()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.dlxsudoku_module"><code class="docutils literal notranslate"><span class="pre">dlxsudoku_module()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.find_empty"><code class="docutils literal notranslate"><span class="pre">find_empty()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.find_valid_vals"><code class="docutils literal notranslate"><span class="pre">find_valid_vals()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.list_of_free_fields"><code class="docutils literal notranslate"><span class="pre">list_of_free_fields()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.ordered_valid_vals"><code class="docutils literal notranslate"><span class="pre">ordered_valid_vals()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.random_walk"><code class="docutils literal notranslate"><span class="pre">random_walk()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.scan_for_valid_vals"><code class="docutils literal notranslate"><span class="pre">scan_for_valid_vals()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.validator"><code class="docutils literal notranslate"><span class="pre">validator()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-helpers.validateops">helpers.validateops module</a><ul>
+<li><a class="reference internal" href="#helpers.validateops.determine_headers"><code class="docutils literal notranslate"><span class="pre">determine_headers()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.validateops.validate_date"><code class="docutils literal notranslate"><span class="pre">validate_date()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.validateops.validate_file"><code class="docutils literal notranslate"><span class="pre">validate_file()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.validateops.validate_rows"><code class="docutils literal notranslate"><span class="pre">validate_rows()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-helpers">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="project.html"
+                          title="previous chapter">project module</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="test_project.html"
+                          title="next chapter">test_project module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/helpers.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="test_project.html" title="test_project module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="project.html" title="project module"
+             accesskey="P">previous</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">Sudoku Solver With Statistics 1.0 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">final_project</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">helpers package</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" id="search-box" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="helpers-package">
+<h1>helpers package<a class="headerlink" href="#helpers-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-helpers.dbops">
+<span id="helpers-dbops-module"></span><h2>helpers.dbops module<a class="headerlink" href="#module-helpers.dbops" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.dbops.conn_to_db">
+<span class="sig-prename descclassname"><span class="pre">helpers.dbops.</span></span><span class="sig-name descname"><span class="pre">conn_to_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Cursor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Connection</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#helpers.dbops.conn_to_db" title="Link to this definition">¶</a></dt>
+<dd><p>Returns a cursor of DB object. DB name “stats.db”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DB cursor object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>SQLite3 object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.dbops.get_data">
+<span class="sig-prename descclassname"><span class="pre">helpers.dbops.</span></span><span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#helpers.dbops.get_data" title="Link to this definition">¶</a></dt>
+<dd><p>Connects to DB and reads the data to be fetched from DB table.
+Then prints them to the screen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db_name</strong> – Name of database file</p></li>
+<li><p><strong>db_content</strong> – What is to be read from the db</p></li>
+<li><p><strong>target</strong> – A str describing what should be modified when dropping entry or table</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.dbops.setup_path">
+<span class="sig-prename descclassname"><span class="pre">helpers.dbops.</span></span><span class="sig-name descname"><span class="pre">setup_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#helpers.dbops.setup_path" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.dbops.termination">
+<span class="sig-prename descclassname"><span class="pre">helpers.dbops.</span></span><span class="sig-name descname"><span class="pre">termination</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_conn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#helpers.dbops.termination" title="Link to this definition">¶</a></dt>
+<dd><p>Terminates the program via sys.exit()</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>db_conn</strong> – SQLite3 connection object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.dbops.write_to_db">
+<span class="sig-prename descclassname"><span class="pre">helpers.dbops.</span></span><span class="sig-name descname"><span class="pre">write_to_db</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">presentation_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solve_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">puzzles_read</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solutions_found</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avg_solve_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#helpers.dbops.write_to_db" title="Link to this definition">¶</a></dt>
+<dd><p>Establishes a SQLite DB if there is no DB called “stats.db”,
+or creates the table called “statistics” if there is none.
+Writes data to the DB.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>presentation_method</strong> – Type of data presentation method. Available test or tofile</p></li>
+<li><p><strong>solve_method</strong> – Algo name used to solve given dataset</p></li>
+<li><p><strong>test_date</strong> – Date of execution</p></li>
+<li><p><strong>start_time</strong> – Time at which the test has started</p></li>
+<li><p><strong>duration_time</strong> – Operation duration time</p></li>
+<li><p><strong>puzzles_read</strong> – How many puzzles there were in the dataset</p></li>
+<li><p><strong>solutions_found</strong> – How many puzzles were solved</p></li>
+<li><p><strong>avg_solve_time</strong> – Average time needed to solve one puzzle using given method</p></li>
+<li><p><strong>db_name</strong> – A string representing db name</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-helpers.fileops">
+<span id="helpers-fileops-module"></span><h2>helpers.fileops module<a class="headerlink" href="#module-helpers.fileops" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.fileops.db_to_file">
+<span class="sig-prename descclassname"><span class="pre">helpers.fileops.</span></span><span class="sig-name descname"><span class="pre">db_to_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#helpers.fileops.db_to_file" title="Link to this definition">¶</a></dt>
+<dd><p>Saves DB contents into a csv file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>db_name</strong> – Name of the db file for connection purposes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.fileops.lines_positions">
+<span class="sig-prename descclassname"><span class="pre">helpers.fileops.</span></span><span class="sig-name descname"><span class="pre">lines_positions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#helpers.fileops.lines_positions" title="Link to this definition">¶</a></dt>
+<dd><p>Returns a list with 200 new line locations from a file. Uses tell() function
+If file has less lines stops at file end.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file</strong> – filename or filepath as a str</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>IOError</strong> – If something’s wrong with the file</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list composed of new line starting locations as int</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.fileops.linesread">
+<span class="sig-prename descclassname"><span class="pre">helpers.fileops.</span></span><span class="sig-name descname"><span class="pre">linesread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_loc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#helpers.fileops.linesread" title="Link to this definition">¶</a></dt>
+<dd><p>Returns line read from a file to help determine which column is the puzzle,
+and which is the solution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> – filename or filepath as a str</p></li>
+<li><p><strong>line_loc</strong> – Integer number of byte position for a given line</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>IOError</strong> – If something’s wrong with the file</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string containing puzzle and solution separated with comma</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.fileops.open_file">
+<span class="sig-prename descclassname"><span class="pre">helpers.fileops.</span></span><span class="sig-name descname"><span class="pre">open_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'r'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">IO</span></span></span><a class="headerlink" href="#helpers.fileops.open_file" title="Link to this definition">¶</a></dt>
+<dd><p>Opens the file of given name or path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> – filename or filepath</p></li>
+<li><p><strong>mode</strong> – File open mode. Here read mode.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>IOError</strong> – If something’s wrong with the file</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A IO object</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>file object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.fileops.read_file">
+<span class="sig-prename descclassname"><span class="pre">helpers.fileops.</span></span><span class="sig-name descname"><span class="pre">read_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solutions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#helpers.fileops.read_file" title="Link to this definition">¶</a></dt>
+<dd><p>Returns list of dicts with sudoku puzzles
+or puzzles and solutions pairs provided by the user.
+Solutions are provided by the user.
+Output is going to be used to fed into the solver.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> – A string containing filename with extension or path to the file</p></li>
+<li><p><strong>solutions</strong> – A boolean value depending on flag given by the user</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of dicts containing sudoku data. Puzzles and solutions or puzzles only</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.fileops.write_to_file">
+<span class="sig-prename descclassname"><span class="pre">helpers.fileops.</span></span><span class="sig-name descname"><span class="pre">write_to_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sudoku_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comparison</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#helpers.fileops.write_to_file" title="Link to this definition">¶</a></dt>
+<dd><p>Writes a bunch of data to a file called “results.csv”.
+Creates file if it doesn’t exist, appends if it does.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sudoku_data</strong> – A dict contain ing puzzle and/or solution provided for comparison</p></li>
+<li><p><strong>grid</strong> – A list of list representing generated sudoku solution</p></li>
+<li><p><strong>comparison</strong> – Result of comparison if generated solution is equivalent to provided one</p></li>
+<li><p><strong>method_name</strong> – A string representing solve method name</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-helpers.gridops">
+<span id="helpers-gridops-module"></span><h2>helpers.gridops module<a class="headerlink" href="#module-helpers.gridops" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.gridops.grid_to_str">
+<span class="sig-prename descclassname"><span class="pre">helpers.gridops.</span></span><span class="sig-name descname"><span class="pre">grid_to_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#helpers.gridops.grid_to_str" title="Link to this definition">¶</a></dt>
+<dd><p>Creates string form of a grid ready for writing to a file,
+or comparison with provided dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>grid</strong> – A list of list representing sudoku puzzle</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A string concatenated from the grid</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.gridops.make_grid">
+<span class="sig-prename descclassname"><span class="pre">helpers.gridops.</span></span><span class="sig-name descname"><span class="pre">make_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#helpers.gridops.make_grid" title="Link to this definition">¶</a></dt>
+<dd><p>Takes a dict as an input.
+Manipulates a string and creates a 9x9 grid out of it.
+The grid is a list of list made of 9 rows with 9 separated string chars inside.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>entry</strong> – A string containing sudoku puzzle to solve</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of lists (2d grid) with strings inside</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.gridops.print_grid">
+<span class="sig-prename descclassname"><span class="pre">helpers.gridops.</span></span><span class="sig-name descname"><span class="pre">print_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="headerlink" href="#helpers.gridops.print_grid" title="Link to this definition">¶</a></dt>
+<dd><p>returns grid using NumPy matrix method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>grid</strong> – List of list representing sudoku puzzle</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A grid being a NumPy object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy matrix object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-helpers.miscellaneous">
+<span id="helpers-miscellaneous-module"></span><h2>helpers.miscellaneous module<a class="headerlink" href="#module-helpers.miscellaneous" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.miscellaneous.clear_screen">
+<span class="sig-prename descclassname"><span class="pre">helpers.miscellaneous.</span></span><span class="sig-name descname"><span class="pre">clear_screen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#helpers.miscellaneous.clear_screen" title="Link to this definition">¶</a></dt>
+<dd><p>Clears terminal window.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.miscellaneous.compare">
+<span class="sig-prename descclassname"><span class="pre">helpers.miscellaneous.</span></span><span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sol_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#helpers.miscellaneous.compare" title="Link to this definition">¶</a></dt>
+<dd><p>Compares generated solution to the solution provided via file by the user</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>grid</strong> – A list of list representing generated sudoku solution</p></li>
+<li><p><strong>sol_str</strong> – A string with provided solution to given puzzle for comparison</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True or false</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-helpers.printops">
+<span id="helpers-printops-module"></span><h2>helpers.printops module<a class="headerlink" href="#module-helpers.printops" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.printops.confirmation">
+<span class="sig-prename descclassname"><span class="pre">helpers.printops.</span></span><span class="sig-name descname"><span class="pre">confirmation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#helpers.printops.confirmation" title="Link to this definition">¶</a></dt>
+<dd><p>Confirmation menu for DB drop</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.printops.print_date">
+<span class="sig-prename descclassname"><span class="pre">helpers.printops.</span></span><span class="sig-name descname"><span class="pre">print_date</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#helpers.printops.print_date" title="Link to this definition">¶</a></dt>
+<dd><p>Returns valid date string if input matches the pattern and adopted conventions for dates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A date entered by the user after validation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.printops.print_main_menu">
+<span class="sig-prename descclassname"><span class="pre">helpers.printops.</span></span><span class="sig-name descname"><span class="pre">print_main_menu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#helpers.printops.print_main_menu" title="Link to this definition">¶</a></dt>
+<dd><p>Manin menu</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.printops.print_other_actions">
+<span class="sig-prename descclassname"><span class="pre">helpers.printops.</span></span><span class="sig-name descname"><span class="pre">print_other_actions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#helpers.printops.print_other_actions" title="Link to this definition">¶</a></dt>
+<dd><p>Other actions menu</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.printops.print_presentation_method_menu">
+<span class="sig-prename descclassname"><span class="pre">helpers.printops.</span></span><span class="sig-name descname"><span class="pre">print_presentation_method_menu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#helpers.printops.print_presentation_method_menu" title="Link to this definition">¶</a></dt>
+<dd><p>Presentation by method menu</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.printops.print_solve_menu">
+<span class="sig-prename descclassname"><span class="pre">helpers.printops.</span></span><span class="sig-name descname"><span class="pre">print_solve_menu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#helpers.printops.print_solve_menu" title="Link to this definition">¶</a></dt>
+<dd><p>Presentation by solve method menu</p>
+</dd></dl>
+
+</section>
+<section id="module-helpers.solvers">
+<span id="helpers-solvers-module"></span><h2>helpers.solvers module<a class="headerlink" href="#module-helpers.solvers" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.solvers.bact_r_solve">
+<span class="sig-prename descclassname"><span class="pre">helpers.solvers.</span></span><span class="sig-name descname"><span class="pre">bact_r_solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">free_fields</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#helpers.solvers.bact_r_solve" title="Link to this definition">¶</a></dt>
+<dd><p>A backtracking recursive algorithm for solving sudoku puzzle.
+Algorithm writes values to the list which was the argument in function call.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>grid</strong> – A list of list representing sudoku puzzle</p></li>
+<li><p><strong>free_fields</strong> – A list of tuples representing free cells of sudoku grid</p></li>
+<li><p><strong>depth</strong> – A value indicating where for loop should start iteration over free cells</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean value indicating if solution was found or not</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.solvers.boost_bact_r_solve">
+<span class="sig-prename descclassname"><span class="pre">helpers.solvers.</span></span><span class="sig-name descname"><span class="pre">boost_bact_r_solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_vals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#helpers.solvers.boost_bact_r_solve" title="Link to this definition">¶</a></dt>
+<dd><p>A backtracking recursive algorithm for solving sudoku puzzle.
+Takes additional argument being a dict of possible values for given board field.
+Algorithm writes values to the list which was the argument in function call.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>grid</strong> – A list of list representing sudoku puzzle</p></li>
+<li><p><strong>valid_vals</strong> – A dict containing possible values for each free board field</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean value indicating if solution was found or not</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.solvers.cake_algo">
+<span class="sig-prename descclassname"><span class="pre">helpers.solvers.</span></span><span class="sig-name descname"><span class="pre">cake_algo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#helpers.solvers.cake_algo" title="Link to this definition">¶</a></dt>
+<dd><p>If you do this test calculation, You get a CAKE!</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>grid</strong> – A list of list representing sudoku puzzle</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A string containing life thoughts.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.solvers.dlxsudoku_module">
+<span class="sig-prename descclassname"><span class="pre">helpers.solvers.</span></span><span class="sig-name descname"><span class="pre">dlxsudoku_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#helpers.solvers.dlxsudoku_module" title="Link to this definition">¶</a></dt>
+<dd><p>Sudoku solver found on PyPl using induction, Dancing Links and brute force.
+<a class="reference external" href="https://pypi.org/project/dlxsudoku/">https://pypi.org/project/dlxsudoku/</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> – Raw sudoku data containing puzzle and/or solution</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Grid containing solution to given sudoku puzzle</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.solvers.find_empty">
+<span class="sig-prename descclassname"><span class="pre">helpers.solvers.</span></span><span class="sig-name descname"><span class="pre">find_empty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#helpers.solvers.find_empty" title="Link to this definition">¶</a></dt>
+<dd><p>Checks if given board field is empty or not returning row, col tuple.
+Returns None otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>grid</strong> – A list of list representing sudoku puzzle</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing row and colum indices or None value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple or None value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.solvers.find_valid_vals">
+<span class="sig-prename descclassname"><span class="pre">helpers.solvers.</span></span><span class="sig-name descname"><span class="pre">find_valid_vals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span></span></span><a class="headerlink" href="#helpers.solvers.find_valid_vals" title="Link to this definition">¶</a></dt>
+<dd><p>Finds possible values for given sudoku field (row col) tuple.
+Adds them to the set, and returns it</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>grid</strong> – A list of list representing sudoku puzzle</p></li>
+<li><p><strong>position</strong> – A tuple with row and column indices of a grid</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A set of possible values for given grid’s field</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.solvers.list_of_free_fields">
+<span class="sig-prename descclassname"><span class="pre">helpers.solvers.</span></span><span class="sig-name descname"><span class="pre">list_of_free_fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#helpers.solvers.list_of_free_fields" title="Link to this definition">¶</a></dt>
+<dd><p>Make list of free fields to speed up recursion &amp; backtrack algorithm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>grid</strong> – A list of list representing sudoku puzzle</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of tuples containing free cells addresses</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of tuples of integers</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.solvers.ordered_valid_vals">
+<span class="sig-prename descclassname"><span class="pre">helpers.solvers.</span></span><span class="sig-name descname"><span class="pre">ordered_valid_vals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">valid_vals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#helpers.solvers.ordered_valid_vals" title="Link to this definition">¶</a></dt>
+<dd><p>Checks the frequency od found valid values for given grid field,
+and orders them by ascending order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>valid_vals</strong> – A dict of strings containing available values for given fields</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dict of strings containing available values for given fields in ascending order</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict of strings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.solvers.random_walk">
+<span class="sig-prename descclassname"><span class="pre">helpers.solvers.</span></span><span class="sig-name descname"><span class="pre">random_walk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#helpers.solvers.random_walk" title="Link to this definition">¶</a></dt>
+<dd><p>Made in association with CS50 Duck debugger. It solves, but its random…
+Sometimes it gets stuck, sometimes it takes some time to solve,
+and sometimes its solves the problem quite fast (rarely)…</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>grid</strong> – A list of list representing sudoku puzzle</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean value for indication if there is a solution or not</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.solvers.scan_for_valid_vals">
+<span class="sig-prename descclassname"><span class="pre">helpers.solvers.</span></span><span class="sig-name descname"><span class="pre">scan_for_valid_vals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#helpers.solvers.scan_for_valid_vals" title="Link to this definition">¶</a></dt>
+<dd><p>Function scanning given sudoku grid, and filling a dictionary with tuple (row, col) as keys,
+and a list of possible values for given free field of sudoku grid.
+List is provided by “find_valid_vals” function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>grid</strong> – A list of list representing sudoku puzzle</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dict with key[(row, col) tuple]: [list of possible values]</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict of strings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.solvers.validator">
+<span class="sig-prename descclassname"><span class="pre">helpers.solvers.</span></span><span class="sig-name descname"><span class="pre">validator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">digit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#helpers.solvers.validator" title="Link to this definition">¶</a></dt>
+<dd><p>Algorithm for validating if given value at given grid’s position can be put in it,
+based of games rules, row, column and 3x3 square can’t contain duplicates of any 1-9 value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>grid</strong> – A list of list representing sudoku puzzle</p></li>
+<li><p><strong>digit</strong> – A value to put into given grid’s field</p></li>
+<li><p><strong>position</strong> – A tuple with row and column indices</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True or False for given value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-helpers.validateops">
+<span id="helpers-validateops-module"></span><h2>helpers.validateops module<a class="headerlink" href="#module-helpers.validateops" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.validateops.determine_headers">
+<span class="sig-prename descclassname"><span class="pre">helpers.validateops.</span></span><span class="sig-name descname"><span class="pre">determine_headers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lines_loc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#helpers.validateops.determine_headers" title="Link to this definition">¶</a></dt>
+<dd><p>Returns header list for csv.DictReader() based on the sample of data read from a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> – filename or filepath as a str</p></li>
+<li><p><strong>lines_loc</strong> – List of integer number of byte position for a given line</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>IOError</strong> – If something’s wrong with the file</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of headers for csv.DictReader() determining where are the puzzles,</p>
+</dd>
+</dl>
+<p>and where are the solutions
+:rtype: list</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.validateops.validate_date">
+<span class="sig-prename descclassname"><span class="pre">helpers.validateops.</span></span><span class="sig-name descname"><span class="pre">validate_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chosen_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#helpers.validateops.validate_date" title="Link to this definition">¶</a></dt>
+<dd><p>Validates if a string is in valid date format, and a valid date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>chosen_date</strong> – A string containing date for validation</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Output either false or true</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.validateops.validate_file">
+<span class="sig-prename descclassname"><span class="pre">helpers.validateops.</span></span><span class="sig-name descname"><span class="pre">validate_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#helpers.validateops.validate_file" title="Link to this definition">¶</a></dt>
+<dd><p>Validates if file of given filename/filepath exists and returns T or F.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – Filename or path and file for validation</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True or False</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="helpers.validateops.validate_rows">
+<span class="sig-prename descclassname"><span class="pre">helpers.validateops.</span></span><span class="sig-name descname"><span class="pre">validate_rows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solutions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#helpers.validateops.validate_rows" title="Link to this definition">¶</a></dt>
+<dd><p>Returns True if row is valid or False if not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> – A dict containing line read from a file</p></li>
+<li><p><strong>header</strong> – A list containing fieldnames for validation</p></li>
+<li><p><strong>solutions</strong> – A boolean value depending on flag given by the user</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if validation is positive, False if it’s negative</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-helpers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-helpers" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">helpers package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-helpers.dbops">helpers.dbops module</a><ul>
+<li><a class="reference internal" href="#helpers.dbops.conn_to_db"><code class="docutils literal notranslate"><span class="pre">conn_to_db()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.dbops.get_data"><code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.dbops.setup_path"><code class="docutils literal notranslate"><span class="pre">setup_path()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.dbops.termination"><code class="docutils literal notranslate"><span class="pre">termination()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.dbops.write_to_db"><code class="docutils literal notranslate"><span class="pre">write_to_db()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-helpers.fileops">helpers.fileops module</a><ul>
+<li><a class="reference internal" href="#helpers.fileops.db_to_file"><code class="docutils literal notranslate"><span class="pre">db_to_file()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.fileops.lines_positions"><code class="docutils literal notranslate"><span class="pre">lines_positions()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.fileops.linesread"><code class="docutils literal notranslate"><span class="pre">linesread()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.fileops.open_file"><code class="docutils literal notranslate"><span class="pre">open_file()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.fileops.read_file"><code class="docutils literal notranslate"><span class="pre">read_file()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.fileops.write_to_file"><code class="docutils literal notranslate"><span class="pre">write_to_file()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-helpers.gridops">helpers.gridops module</a><ul>
+<li><a class="reference internal" href="#helpers.gridops.grid_to_str"><code class="docutils literal notranslate"><span class="pre">grid_to_str()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.gridops.make_grid"><code class="docutils literal notranslate"><span class="pre">make_grid()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.gridops.print_grid"><code class="docutils literal notranslate"><span class="pre">print_grid()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-helpers.miscellaneous">helpers.miscellaneous module</a><ul>
+<li><a class="reference internal" href="#helpers.miscellaneous.clear_screen"><code class="docutils literal notranslate"><span class="pre">clear_screen()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.miscellaneous.compare"><code class="docutils literal notranslate"><span class="pre">compare()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-helpers.printops">helpers.printops module</a><ul>
+<li><a class="reference internal" href="#helpers.printops.confirmation"><code class="docutils literal notranslate"><span class="pre">confirmation()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.printops.print_date"><code class="docutils literal notranslate"><span class="pre">print_date()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.printops.print_main_menu"><code class="docutils literal notranslate"><span class="pre">print_main_menu()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.printops.print_other_actions"><code class="docutils literal notranslate"><span class="pre">print_other_actions()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.printops.print_presentation_method_menu"><code class="docutils literal notranslate"><span class="pre">print_presentation_method_menu()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.printops.print_solve_menu"><code class="docutils literal notranslate"><span class="pre">print_solve_menu()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-helpers.solvers">helpers.solvers module</a><ul>
+<li><a class="reference internal" href="#helpers.solvers.bact_r_solve"><code class="docutils literal notranslate"><span class="pre">bact_r_solve()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.boost_bact_r_solve"><code class="docutils literal notranslate"><span class="pre">boost_bact_r_solve()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.cake_algo"><code class="docutils literal notranslate"><span class="pre">cake_algo()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.dlxsudoku_module"><code class="docutils literal notranslate"><span class="pre">dlxsudoku_module()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.find_empty"><code class="docutils literal notranslate"><span class="pre">find_empty()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.find_valid_vals"><code class="docutils literal notranslate"><span class="pre">find_valid_vals()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.list_of_free_fields"><code class="docutils literal notranslate"><span class="pre">list_of_free_fields()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.ordered_valid_vals"><code class="docutils literal notranslate"><span class="pre">ordered_valid_vals()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.random_walk"><code class="docutils literal notranslate"><span class="pre">random_walk()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.scan_for_valid_vals"><code class="docutils literal notranslate"><span class="pre">scan_for_valid_vals()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.solvers.validator"><code class="docutils literal notranslate"><span class="pre">validator()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-helpers.validateops">helpers.validateops module</a><ul>
+<li><a class="reference internal" href="#helpers.validateops.determine_headers"><code class="docutils literal notranslate"><span class="pre">determine_headers()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.validateops.validate_date"><code class="docutils literal notranslate"><span class="pre">validate_date()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.validateops.validate_file"><code class="docutils literal notranslate"><span class="pre">validate_file()</span></code></a></li>
+<li><a class="reference internal" href="#helpers.validateops.validate_rows"><code class="docutils literal notranslate"><span class="pre">validate_rows()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-helpers">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="project.html"
+                          title="previous chapter">project module</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="test_project.html"
+                          title="next chapter">test_project module</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/helpers.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="test_project.html" title="test_project module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="project.html" title="project module"
+             >previous</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">Sudoku Solver With Statistics 1.0 documentation</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >final_project</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">helpers package</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="search" name="q" id="search-box" />
+          <input type="submit" value="Go" />
+        </form>
+    </div>
+                     |
+                </li>
+            <li class="right">
+<label class="theme-selector-label">
+    Theme
+    <select class="theme-selector" oninput="activateTheme(this.value)">
+        <option value="auto" selected>Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+</label> |</li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; Copyright 2023, Marcin Borowski.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on None.
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+  </body>
+</html>

@@ -208,6 +208,6 @@ def write_to_db(
     db_conn.close()
 
 
-def setup_path():
-    main_dir = os.path.split(os.path.abspath(__file__))[0]
-    sys.path.append(main_dir)
+# def setup_path():
+#     main_dir = os.path.split(os.path.abspath(__file__))[0]
+#     sys.path.append(main_dir)

@@ -25,3 +25,12 @@ def compare(grid: list[list[str]], sol_str: dict[str]) -> bool:
     """
 
     return gridops.grid_to_str(grid) == sol_str["solution"]
+
+
+def cwd_main_dir():
+    """
+    Sets new cwd.
+    """
+    main_dir = os.path.split(os.path.abspath(__file__))[0].rstrip('/helpers')
+    os.chdir(main_dir)
+    print(os.getcwd)

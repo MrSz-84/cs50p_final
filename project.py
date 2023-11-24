@@ -21,6 +21,8 @@ def main():
     """
 
 
+    #set cwd for main folder
+    miscellaneous.cwd_main_dir()
 
     # Consts
     DB_NAME = "stats.db"

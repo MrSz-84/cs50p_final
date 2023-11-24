@@ -29,7 +29,7 @@ def db_to_file(db_name: str) -> None:
     combined = [{key: val for key, val in zip(names, entry)} for entry in db]
 
     # Write to file
-    f = open_file("../dbdump.csv", mode="w")
+    f = open_file("./dbdump.csv", mode="w")
     with f:
         writer = csv.DictWriter(f, fieldnames=names)
         writer.writeheader()
@@ -76,7 +76,7 @@ def write_to_file(
     time = datetime_obj.time().strftime("%H:%M:%S")
 
     # Open file, create variables and write to file using DictWriter.
-    f = open_file("../results.csv", mode="a")
+    f = open_file("./results.csv", mode="a")
     with f:
         fieldnames = [
             "date",
